@@ -1,0 +1,17 @@
+from sklearn.metrics import precision_score, recall_score, f1_score
+
+# Calculating precision, recall, and F1-score
+precision = precision_score(y_true, y_pred_classes, average='macro')
+recall = recall_score(y_true, y_pred_classes, average='macro')
+f1 = f1_score(y_true, y_pred_classes, average='macro')
+
+print("Precision: {:.2f}".format(precision))
+print("Recall: {:.2f}".format(recall))
+print("F1 Score: {:.2f}".format(f1))
+
+# Print the training and validation accuracy
+train_accuracy = history.history['accuracy'][-1]
+validation_accuracy = history.history['val_accuracy'][-1]
+
+print("Training Accuracy: {:.2f}%".format(train_accuracy * 100))
+print("Validation Accuracy: {:.2f}%".format(validation_accuracy * 100))
