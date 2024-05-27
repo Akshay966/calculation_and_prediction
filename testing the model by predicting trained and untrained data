@@ -1,0 +1,25 @@
+import numpy as np
+
+
+example_data_point = [79000,500,7520.8,47.6,50,7900,0,0,0,0,0,0]
+
+# Convert to numpy array and reshape it for prediction
+example_data_point = np.array([example_data_point])
+
+# Scale the data point using the same scaler used for training data
+example_data_point_scaled = scaler.transform(example_data_point)
+
+# Make prediction using the trained model
+predicted_output = model.predict(example_data_point_scaled)
+predicted_class = np.argmax(predicted_output, axis=1)
+
+print("Predicted Output (Probabilities):", predicted_output)
+print("Predicted Class:", predicted_class[0])
+if predicted_class[0]==1:
+  print("telnet")
+if predicted_class[0]==0:
+  print("ping")
+if predicted_class[0]==2:
+  print("VoIP")
+if predicted_class[0]==3:
+  print("DNS")
